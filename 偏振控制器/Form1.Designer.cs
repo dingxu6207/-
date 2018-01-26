@@ -47,19 +47,23 @@ namespace 偏振控制器
             this.textBoxPort = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbState = new System.Windows.Forms.ListBox();
-            this.rtbAccept = new System.Windows.Forms.RichTextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnStartListen = new System.Windows.Forms.Button();
             this.right = new System.Windows.Forms.Button();
             this.left = new System.Windows.Forms.Button();
             this.btnStopListen = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1Speed = new System.Windows.Forms.TextBox();
+            this.textBoxCount = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxSpeed = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(18, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 0;
@@ -68,7 +72,7 @@ namespace 偏振控制器
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 46);
+            this.label2.Location = new System.Drawing.Point(17, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 1;
@@ -76,7 +80,7 @@ namespace 偏振控制器
             // 
             // textBoxIP
             // 
-            this.textBoxIP.Location = new System.Drawing.Point(78, 10);
+            this.textBoxIP.Location = new System.Drawing.Point(83, 33);
             this.textBoxIP.Name = "textBoxIP";
             this.textBoxIP.Size = new System.Drawing.Size(100, 21);
             this.textBoxIP.TabIndex = 2;
@@ -84,7 +88,7 @@ namespace 偏振控制器
             // 
             // textBoxPort
             // 
-            this.textBoxPort.Location = new System.Drawing.Point(78, 43);
+            this.textBoxPort.Location = new System.Drawing.Point(83, 66);
             this.textBoxPort.Name = "textBoxPort";
             this.textBoxPort.Size = new System.Drawing.Size(100, 21);
             this.textBoxPort.TabIndex = 3;
@@ -108,23 +112,6 @@ namespace 偏振控制器
             this.lbState.Size = new System.Drawing.Size(233, 52);
             this.lbState.TabIndex = 0;
             // 
-            // rtbAccept
-            // 
-            this.rtbAccept.Location = new System.Drawing.Point(33, 100);
-            this.rtbAccept.Name = "rtbAccept";
-            this.rtbAccept.Size = new System.Drawing.Size(412, 96);
-            this.rtbAccept.TabIndex = 5;
-            this.rtbAccept.Text = "";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 85);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 12);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "接受信息";
-            // 
             // btnStartListen
             // 
             this.btnStartListen.Location = new System.Drawing.Point(15, 202);
@@ -137,7 +124,7 @@ namespace 偏振控制器
             // 
             // right
             // 
-            this.right.Location = new System.Drawing.Point(106, 202);
+            this.right.Location = new System.Drawing.Point(242, 202);
             this.right.Name = "right";
             this.right.Size = new System.Drawing.Size(83, 23);
             this.right.TabIndex = 8;
@@ -147,7 +134,7 @@ namespace 偏振控制器
             // 
             // left
             // 
-            this.left.Location = new System.Drawing.Point(106, 236);
+            this.left.Location = new System.Drawing.Point(242, 236);
             this.left.Name = "left";
             this.left.Size = new System.Drawing.Size(83, 23);
             this.left.TabIndex = 9;
@@ -165,17 +152,71 @@ namespace 偏振控制器
             this.btnStopListen.UseVisualStyleBackColor = true;
             this.btnStopListen.Click += new System.EventHandler(this.btnStopListen_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(146, 108);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "速度设置：";
+            // 
+            // textBox1Speed
+            // 
+            this.textBox1Speed.Location = new System.Drawing.Point(208, 104);
+            this.textBox1Speed.Name = "textBox1Speed";
+            this.textBox1Speed.Size = new System.Drawing.Size(47, 21);
+            this.textBox1Speed.TabIndex = 12;
+            this.textBox1Speed.TextChanged += new System.EventHandler(this.textBox1Speed_TextChanged);
+            // 
+            // textBoxCount
+            // 
+            this.textBoxCount.Location = new System.Drawing.Point(69, 105);
+            this.textBoxCount.Name = "textBoxCount";
+            this.textBoxCount.Size = new System.Drawing.Size(56, 21);
+            this.textBoxCount.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(27, 108);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "步数：";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(281, 107);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 12);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "速度：";
+            // 
+            // textBoxSpeed
+            // 
+            this.textBoxSpeed.Location = new System.Drawing.Point(321, 104);
+            this.textBoxSpeed.Name = "textBoxSpeed";
+            this.textBoxSpeed.Size = new System.Drawing.Size(56, 21);
+            this.textBoxSpeed.TabIndex = 16;
+            this.textBoxSpeed.Text = "500";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(474, 281);
+            this.Controls.Add(this.textBoxSpeed);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBoxCount);
+            this.Controls.Add(this.textBox1Speed);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnStopListen);
             this.Controls.Add(this.left);
             this.Controls.Add(this.right);
             this.Controls.Add(this.btnStartListen);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.rtbAccept);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBoxPort);
             this.Controls.Add(this.textBoxIP);
@@ -198,8 +239,6 @@ namespace 偏振控制器
         private System.Windows.Forms.TextBox textBoxPort;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ListBox lbState;
-        private System.Windows.Forms.RichTextBox rtbAccept;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnStartListen;
         private System.Windows.Forms.Button right;
         private System.Windows.Forms.Button left;
@@ -210,6 +249,12 @@ namespace 偏振控制器
         private Socket newSocket;
         private IPEndPoint server;
         Thread thread;
+        private Label label4;
+        private TextBox textBox1Speed;
+        private TextBox textBoxCount;
+        private Label label5;
+        private Label label6;
+        private TextBox textBoxSpeed;
     }
 }
 

@@ -18,8 +18,8 @@ namespace 偏振控制器
         {
             InitializeComponent();
             this.lbState.Items.Clear();
-            this.rtbAccept.Text = "";
-            this.textBoxIP.Text = "192.168.75.117";
+            
+            this.textBoxIP.Text = "192.168.1.3";
             this.textBoxPort.Text = "8080";
         }
 
@@ -61,8 +61,14 @@ namespace 偏振控制器
                         break;
                     }
                     string strRec = Encoding.Default.GetString(buffer, 0, r);
-                    //this.rtbAccept.AppendText(newSocket.RemoteEndPoint.ToString() + ":" + strRec + "\r\n");
-                    this.rtbAccept.AppendText(strRec);
+                   
+
+                    if (strRec[2] == '+')
+                        this.textBoxCount.Text = strRec.Substring(3, r-5);
+
+                    if (strRec[2] == 'V')
+                        this.textBoxSpeed.Text = strRec.Substring(3, r - 5);
+
                 }
                 catch
                 {
@@ -128,6 +134,28 @@ namespace 偏振控制器
         }
 
         private void textBoxIP_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1Speed_TextChanged(object sender, EventArgs e)
+        {
+            string strSpeed = "#";            
+            string strGetSpeed = this.textBox1Speed.Text.ToString();
+            string strHead = strSpeed.Insert(0, strGetSpeed);
+            string strEnd = strHead.Insert(0, ":FV");
+            try
+            {
+                byte[] buffer = Encoding.Default.GetBytes(strEnd);
+                newSocket.SendTo(buffer, server);
+            }
+            catch
+            {
+                MessageBox.Show("监听尚未开始，关闭无效!");
+            }
+        }
+
+        private void rtbAccept_TextChanged(object sender, EventArgs e)
         {
 
         }

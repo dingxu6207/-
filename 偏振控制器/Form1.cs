@@ -61,7 +61,8 @@ namespace 偏振控制器
                         break;
                     }
                     string strRec = Encoding.Default.GetString(buffer, 0, r);
-                    this.rtbAccept.AppendText(newSocket.RemoteEndPoint.ToString() + ":" + strRec + "\r\n");
+                    //this.rtbAccept.AppendText(newSocket.RemoteEndPoint.ToString() + ":" + strRec + "\r\n");
+                    this.rtbAccept.AppendText(strRec);
                 }
                 catch
                 {
@@ -78,12 +79,14 @@ namespace 偏振控制器
             {
                 socket.Shutdown(SocketShutdown.Both);
                 socket.Close();
+
                 if (newSocket.Connected)
                 {
                     newSocket.Close();
                     thread.Abort();
                 }
             }
+
             catch
             {
                 socket.Close();
